@@ -1,10 +1,436 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riv Circus</title>
+    <style>
+        :root {
+            --primary-blue: #4a7cff;
+            --bg-color: #f4f7f9;
+            --text-color: #333333;
+        }
+
+        .team-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-blue);
+        }
+
+        .team-role {
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .github-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Keeps images nicely cropped and proportional */
+            display: block;
+        }
+
+        .image-caption {
+            padding: 1rem;
+            margin: 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 80vh;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h1, h2 {
+            color: #111;
+        }
+
+        .hero {
+            text-align: center;
+            background: linear-gradient(rgba(74, 124, 255, 0.1), rgba(74, 124, 255, 0.05));
+            padding: 6rem 2rem;
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: #e0e6ed;
+            height: 150px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .team-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0 auto;
+        }
+
+        .link-button {
+            display: block;
+            background: white;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .link-button:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .contact-form button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #222;
+            color: white;
+        }
+    </style>
+</head>
 <body>
 
-<h1>My First Heading</h1>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo-area">Riv Circus</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#images">Images</a></li>
+                <li><a href="#who-are-we">Who Are We</a></li>
+                <li><a href="#links">Links</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<p>My first paragraph.</p>
+   <!-- HOMEPAGE ANNOUNCEMENTS SECTION -->
+    <section id="home">
+        <div class="home-container">
+            <!-- Welcome Hero Banner -->
+            <div class="home-hero">
+                <h1>Welcome to Riv Circus</h1>
+                <p>Your central hub for our projects, media, community channels, and team updates. Check out our latest announcements below!</p>
+                <a href="contact.html" class="cta-button">Get In Touch</a>
+            </div>
+
+            <!-- Announcements Section -->
+            <div>
+                <h2>Announcements</h2>
+                <p style="text-align: center; margin-bottom: 2rem;">Stay up to date with our latest news and updates.</p>
+                
+                <div class="home-highlights">
+                    <!-- ==========================================
+                         ANNOUNCEMENT 1
+                         ========================================== -->
+                    <div class="highlight-card">
+                        <img src="https://your-username.github.io/your-repo-name/images/announcement1.jpg" alt="Announcement 1">
+                        <div class="highlight-content">
+                            <h3>Project Alpha</h3>
+                            <p>A brief description about this announcement or update goes right here.</p>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         ANNOUNCEMENT 2
+                         ========================================== -->
+                    <div class="highlight-card">
+                        <img src="https://your-username.github.io/your-repo-name/images/announcement2.jpg" alt="Announcement 2">
+                        <div class="highlight-content">
+                            <h3>Community Update</h3>
+                            <p>Share news, community milestones, or updates with visitors as soon as they land.</p>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         ANNOUNCEMENT 3
+                         ========================================== -->
+                    <div class="highlight-card">
+                        <img src="https://your-username.github.io/your-repo-name/images/announcement3.jpg" alt="Announcement 3">
+                        <div class="highlight-content">
+                            <h3>Coming Soon</h3>
+                            <p>Tease upcoming features, drops, or events for everyone checking out your site.</p>
+                        </div>
+                    </div>
+
+                    <!-- TIP: To add another announcement card, just copy a block above from 
+                         <div class="highlight-card"> down to its closing </div>, paste it here, 
+                         and change your image link, title, and description! -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Images Section -->
+    <section id="images">
+        <h2>Images</h2>
+        <p>A gallery of images hosted on your GitHub Pages repository.</p>
+        
+        <div class="github-gallery">
+            <!-- ==========================================
+                 PASTE YOUR GITHUB PAGE IMAGE LINKS BELOW:
+                 Replace the URL inside the src="" attribute
+                 ========================================== -->
+
+            <!-- Image Item 1 -->
+            <div class="gallery-card">
+                <img src="https://your-username.github.io/your-repo-name/images/photo1.jpg" alt="Riv Circus Image 1">
+                <p class="image-caption">Caption or title 1</p>
+            </div>
+
+            <!-- Image Item 2 -->
+            <div class="gallery-card">
+                <img src="https://your-username.github.io/your-repo-name/images/photo2.jpg" alt="Riv Circus Image 2">
+                <p class="image-caption">Caption or title 2</p>
+            </div>
+
+            <!-- Image Item 3 -->
+            <div class="gallery-card">
+                <img src="https://your-username.github.io/your-repo-name/images/photo3.jpg" alt="Riv Circus Image 3">
+                <p class="image-caption">Caption or title 3</p>
+            </div>
+
+            <!-- Image Item 4 -->
+            <div class="gallery-card">
+                <img src="https://your-username.github.io/your-repo-name/images/photo4.jpg" alt="Riv Circus Image 4">
+                <p class="image-caption">Caption or title 4</p>
+            </div>
+
+            <!-- To add more images, just copy and paste another gallery-card block above! -->
+        </div>
+    </section>
+
+<!-- Who Are We Section -->
+    <section id="who-are-we">
+        <h2>Who Are We</h2>
+        <p style="text-align: center;">Meet the team behind Riv Circus!</p>
+        
+        <div class="team-cards">
+            <!-- ==========================================
+                 TEAM MEMBER 1: STAR
+                 ========================================== -->
+            <div class="card">
+                <img src="https://your-username.github.io/your-repo-name/images/star.png" alt="Star" class="team-avatar">
+                <h3>Star</h3>
+                <p class="team-role">The Creator</p>
+                <p>Hello, I'm Star</p>
+            </div>
+
+            <!-- ==========================================
+                 TEAM MEMBER 2: OLLY
+                 ========================================== -->
+            <div class="card">
+                <img src="https://your-username.github.io/your-repo-name/images/olly.png" alt="Olly" class="team-avatar">
+                <h3>Olly</h3>
+                <p class="team-role">The Socials Manager</p>
+                <p>Hello, I'm Star</p>
+            </div>
+
+            <!-- ==========================================
+                 TEAM MEMBER 3: CYBER
+                 ========================================== -->
+            <div class="card">
+                <img src="https://your-username.github.io/your-repo-name/images/cyber.png" alt="Cyber" class="team-avatar">
+                <h3>Cyber</h3>
+                <p class="team-role">The Powerful One</p>
+                <p>Hello, I'm Star</p>
+            </div>
+
+            <!-- TIP: To add another person, just copy a card block above, 
+                 paste it here, and change the image link, name, and description! -->
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section id="links">
+        <h2>Links</h2>
+        <p style="text-align: center;">Connect with our channels and community platforms:</p>
+        <div class="links-list">
+            <a href="https://rivcircus.jarviscyber.online/discord" target="_blank" class="link-button">Discord</a>
+            <a href="https://rivcircus.jarviscyber.online/tiktok" target="_blank" class="link-button">TikTok</a>
+            <a href="https://rivcircus.jarviscyber.online/youtube" target="_blank" class="link-button">YouTube</a>
+            <a href="https://rivcircus.jarviscyber.online/roblox" target="_blank" class="link-button">Roblox</a>
+        </div>
+    </section>
+
+    
+        
+        <!-- Contact Us Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p style="text-align: center;">Reach us directly at: <strong>Jarvi@Riv.jarviscyber.online</strong><br>Discord: <strong>mrcyber.mc</strong></p>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <!-- Your Web3Forms Access Key -->
+            <input type="hidden" name="apikey" value="feb66eec-305e-4e9a-b6db-8a43d5dcfc8e">
+
+            <!-- Subject line for the incoming email -->
+            <input type="hidden" name="subject" value="New message from Riv Circus Website">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Riv Circus. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
