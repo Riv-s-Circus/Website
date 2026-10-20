@@ -64,7 +64,7 @@
         .gallery-card img {
             width: 100%;
             height: 200px;
-            object-fit: cover; /* Keeps images nicely cropped and proportional */
+            object-fit: cover;
             display: block;
         }
 
@@ -140,24 +140,6 @@
             padding: 6rem 2rem;
         }
 
-        .grid-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            background: #e0e6ed;
-            height: 150px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
         .links-list {
             display: flex;
             flex-direction: column;
@@ -223,6 +205,16 @@
             background: #222;
             color: white;
         }
+
+        footer a {
+            color: #79a1ff;
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -257,9 +249,7 @@
                 <p style="text-align: center; margin-bottom: 2rem;">Stay up to date with our latest news and updates.</p>
                 
                 <div class="home-highlights">
-                    <!-- ==========================================
-                         ANNOUNCEMENT 1
-                         ========================================== -->
+                    <!-- ANNOUNCEMENT 1 -->
                     <div class="highlight-card">
                         <img src="https://your-username.github.io/your-repo-name/images/announcement1.jpg" alt="Announcement 1">
                         <div class="highlight-content">
@@ -268,9 +258,7 @@
                         </div>
                     </div>
 
-                    <!-- ==========================================
-                         ANNOUNCEMENT 2
-                         ========================================== -->
+                    <!-- ANNOUNCEMENT 2 -->
                     <div class="highlight-card">
                         <img src="https://your-username.github.io/your-repo-name/images/announcement2.jpg" alt="Announcement 2">
                         <div class="highlight-content">
@@ -279,9 +267,7 @@
                         </div>
                     </div>
 
-                    <!-- ==========================================
-                         ANNOUNCEMENT 3
-                         ========================================== -->
+                    <!-- ANNOUNCEMENT 3 -->
                     <div class="highlight-card">
                         <img src="https://your-username.github.io/your-repo-name/images/announcement3.jpg" alt="Announcement 3">
                         <div class="highlight-content">
@@ -289,10 +275,6 @@
                             <p>Tease upcoming features, drops, or events for everyone checking out your site.</p>
                         </div>
                     </div>
-
-                    <!-- TIP: To add another announcement card, just copy a block above from 
-                         <div class="highlight-card"> down to its closing </div>, paste it here, 
-                         and change your image link, title, and description! -->
                 </div>
             </div>
         </div>
@@ -304,36 +286,22 @@
         <p>A gallery of images hosted on your GitHub Pages repository.</p>
         
         <div class="github-gallery">
-            <!-- ==========================================
-                 PASTE YOUR GITHUB PAGE IMAGE LINKS BELOW:
-                 Replace the URL inside the src="" attribute
-                 ========================================== -->
-
-            <!-- Image Item 1 -->
             <div class="gallery-card">
                 <img src="https://your-username.github.io/your-repo-name/images/photo1.jpg" alt="Riv Circus Image 1">
                 <p class="image-caption">Caption or title 1</p>
             </div>
-
-            <!-- Image Item 2 -->
             <div class="gallery-card">
                 <img src="https://your-username.github.io/your-repo-name/images/photo2.jpg" alt="Riv Circus Image 2">
                 <p class="image-caption">Caption or title 2</p>
             </div>
-
-            <!-- Image Item 3 -->
             <div class="gallery-card">
                 <img src="https://your-username.github.io/your-repo-name/images/photo3.jpg" alt="Riv Circus Image 3">
                 <p class="image-caption">Caption or title 3</p>
             </div>
-
-            <!-- Image Item 4 -->
             <div class="gallery-card">
                 <img src="https://your-username.github.io/your-repo-name/images/photo4.jpg" alt="Riv Circus Image 4">
                 <p class="image-caption">Caption or title 4</p>
             </div>
-
-            <!-- To add more images, just copy and paste another gallery-card block above! -->
         </div>
     </section>
 
@@ -343,9 +311,7 @@
         <p style="text-align: center;">Meet the team behind Riv Circus!</p>
         
         <div class="team-cards">
-            <!-- ==========================================
-                 TEAM MEMBER 1: STAR
-                 ========================================== -->
+            <!-- TEAM MEMBER 1: STAR -->
             <div class="card">
                 <img src="https://your-username.github.io/your-repo-name/images/star.png" alt="Star" class="team-avatar">
                 <h3>Star</h3>
@@ -353,9 +319,7 @@
                 <p>Hello, I'm Star</p>
             </div>
 
-            <!-- ==========================================
-                 TEAM MEMBER 2: OLLY
-                 ========================================== -->
+            <!-- TEAM MEMBER 2: OLLY -->
             <div class="card">
                 <img src="https://your-username.github.io/your-repo-name/images/olly.png" alt="Olly" class="team-avatar">
                 <h3>Olly</h3>
@@ -363,18 +327,13 @@
                 <p>Hello, I'm Star</p>
             </div>
 
-            <!-- ==========================================
-                 TEAM MEMBER 3: CYBER
-                 ========================================== -->
+            <!-- TEAM MEMBER 3: CYBER -->
             <div class="card">
                 <img src="https://raw.githubusercontent.com/Riv-s-Circus/Website/main/484c380b-84d9-4f16-994f-de884ed8d6a7_removalai_preview.png" alt="Cyber" class="team-avatar">
                 <h3>Cyber</h3>
                 <p class="team-role">The Powerful One</p>
                 <p>Hello, I'm Star</p>
             </div>
-
-            <!-- TIP: To add another person, just copy a card block above, 
-                 paste it here, and change the image link, name, and description! -->
         </div>
     </section>
 
@@ -396,10 +355,7 @@
         <p style="text-align: center;">Reach us directly at: <strong>Jarvi@Riv.jarviscyber.online</strong><br>Discord: <strong>mrcyber.mc</strong></p>
         
         <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-            <!-- Your Web3Forms Access Key -->
             <input type="hidden" name="apikey" value="feb66eec-305e-4e9a-b6db-8a43d5dcfc8e">
-
-            <!-- Subject line for the incoming email -->
             <input type="hidden" name="subject" value="New message from Riv Circus Website">
 
             <label for="name">Name</label>
@@ -416,7 +372,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Riv Circus. All rights reserved.</p>
+        <p>&copy; 2026 Riv Circus. All rights reserved. | <a href="https://projects.jarviscyber.online" target="_blank">Cyber Projects</a></p>
     </footer>
 
 </body>
